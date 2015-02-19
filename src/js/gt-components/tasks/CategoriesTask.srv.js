@@ -2,19 +2,15 @@
 
     function CategoriesTaskService()
     {
-        var categories,Category;
+        var categories;
 
         //this.setFormatTime = function(_boolean){
         //    params.format_time = _boolean;
         //};
 
         function Category(){
-            console.log(this);
-            this.id = null;
-            this.parent_id = null;
-            this.name = null;
-            this.parent = null;
-            this.childrens = [];
+            this.categories = [];
+            this.tasks = [];
         }
 
         function getNew(){
@@ -23,10 +19,10 @@
 
         this.$get = function(){
             return {
-                get:function(key){
+                get:function(){
 
                 },
-                set:function(parent,new_category){
+                set:function(){
 
                 },
                 getNew:getNew

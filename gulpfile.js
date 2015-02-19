@@ -53,7 +53,7 @@ var NG_HTML_TEMPLATES_SRC =[
     'src/ng-templates/**/*.tpl.html'
 ];
 
-var ANGULAR_MODULE_NAME = 'bizbuzim';
+var ANGULAR_MODULE_NAME = 'TasksManager';
 
 var VERSION = (function(){
     var min,max;

@@ -8,13 +8,15 @@
         //    params.format_time = _boolean;
         //};
 
+        function Task(id,name,description)
+        {
+            this.id = id ? id : null;
+            this.name = name ? name : null;
+            this.description = description ? description :null;
+        }
 
         this.$get = function(){
-            return {
-                get: function(){
-                    return tasks;
-                }
-            };
+            return {};
         }
     }
 

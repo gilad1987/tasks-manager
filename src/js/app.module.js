@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('tasks_manager',[
+    angular.module('TasksManager',[
         'tasks'
     ]);
 

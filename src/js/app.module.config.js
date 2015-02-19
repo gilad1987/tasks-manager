@@ -5,6 +5,6 @@
 
     }
 
-    angular.module('tasks_manager').config([Config]);
+    angular.module('TasksManager').config([Config]);
 
 })();
