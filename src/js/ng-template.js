@@ -23,7 +23,7 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("src/js/gt-components/tasks/task.tpl.html",
     "<div class=\"box\" ng-class=\"{child:isChild()}\">\n" +
-    "    תת משימה\n" +
+    "New task template\n" +
     "</div>");
 }]);
 })();
