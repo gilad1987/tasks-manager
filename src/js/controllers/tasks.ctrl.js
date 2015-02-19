@@ -12,8 +12,22 @@
         };
 
         this.tasksCategories = [
-            {},
-            {}
+            {
+                name:'a'
+            },
+            {
+                name:'b',
+                tasks:[{
+                    name:'b1',
+                    tasks:[{
+                        name:'bb1'
+                    },{
+                        name:'bb2'
+                    }]
+                },{
+                    name:'b2'
+                }]
+            }
         ];
     }
 
