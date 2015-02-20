@@ -26,14 +26,17 @@
     <!-- endinject -->
 
 </head>
+
 <body>
+<!-- track by TasksCtrl.uniqueId() -->
     <div class="page-wrapper">
         <div ng-controller="TasksController as TasksCtrl">
             <div
-                ng-repeat="taskCategory in TasksCtrl.tasksCategories track by TasksCtrl.uniqueId()"
-                ng-include="'src/js/gt-components/tasks/category.tpl.html'">
+                ng-repeat="data in TasksCtrl.tasks"
+                ng-include="'src/js/gt-components/tasks/task.tpl.html'">
             </div>
         </div>
     </div>
 </body>
+
 </html>
