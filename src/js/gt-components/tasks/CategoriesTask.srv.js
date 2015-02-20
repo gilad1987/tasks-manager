@@ -1,5 +1,6 @@
 (function () {
 
+    /*
     function CategoriesTaskService()
     {
         var categories;
@@ -31,5 +32,7 @@
     }
 
     angular.module('tasks').provider('CategoriesTaskService',[CategoriesTaskService]);
+
+    */
 
 })();

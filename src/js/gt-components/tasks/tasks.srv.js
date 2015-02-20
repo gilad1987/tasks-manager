@@ -8,15 +8,26 @@
         //    params.format_time = _boolean;
         //};
 
-        function Task(id,name,description)
+        function Task(id,name,description,parent)
         {
             this.id = id ? id : null;
             this.name = name ? name : null;
             this.description = description ? description :null;
+            this.done = false;
+            this.parent = parent ? parent : null;
+            this.tasks = [];
+        }
+
+        for(var i=0; i<50; i++){
+
         }
 
         this.$get = function(){
-            return {};
+            return {
+                get:function(){
+                    return tasks;
+                }
+            };
         }
     }
 
