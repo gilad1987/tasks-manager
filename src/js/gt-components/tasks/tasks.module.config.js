@@ -5,6 +5,6 @@
 
     }
 
-    angular.module('tasks').config([Config]);
+    angular.module('gt-tasks').config([Config]);
 
 })();

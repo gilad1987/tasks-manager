@@ -31,6 +31,6 @@
         }
     }
 
-    angular.module('tasks').provider('TasksService',[TasksService]);
+    angular.module('gt-tasks').provider('TasksService',[TasksService]);
 
 })();

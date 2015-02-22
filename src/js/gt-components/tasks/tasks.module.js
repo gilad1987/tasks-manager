@@ -1,5 +1,5 @@
 (function () {
 
-    angular.module('tasks',[]);
+    angular.module('gt-tasks',[]);
 
 })();
