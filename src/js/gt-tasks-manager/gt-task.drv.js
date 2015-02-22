@@ -14,9 +14,7 @@
 
             },
             compile: function(element) {
-                element.css('background','#' + (function co(lor){   return (lor +=
-                    [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'][Math.floor(Math.random()*16)])
-                && (lor.length == 6) ?  lor : co(lor); })(''));
+                element.css('background-color','#'+Math.floor(Math.random()*16777215).toString(16));
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){
 
                     // Define your normal link function here.
