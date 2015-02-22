@@ -12,7 +12,7 @@
             //controllerAs:'AudioCtrl',
             //controller: [GtPlayerDirectiveController],
             link:function(scope,element,attrs){
-                console.log(scope.tasks);
+
             }
         };
     }
