@@ -17,6 +17,6 @@
         };
     }
 
-    angular.module('gt-tasks').directive('gtTaskManager',[GtPlayerDirective]);
+    angular.module('gt-tasks').directive('gtTasksManager',[GtPlayerDirective]);
 
 })(angular);
