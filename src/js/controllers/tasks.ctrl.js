@@ -12,34 +12,34 @@
         };
 
 
-        this.tasks = [                                            {
-            name:'a-a1',
+        this.tasks = [{
+            name:'1111',
             tasks:[
                 {
-                    name:'a-a1',
+                    name:'1111-2',
                     tasks:[
                         {
-                            name:'a-a1'
+                            name:'1111-2-1'
                         },
                         {
-                            name:'a-a2'
+                            name:'1111-2-2'
                         },
                         {
-                            name:'a-a3'
+                            name:'1111-2-3'
                         }
                     ]
                 },
                 {
-                    name:'a-a2'
+                    name:'1111-33'
                 },
                 {
-                    name:'a-a3'
+                    name:'1111-44'
                 }
             ]
         },
             {
 
-                name:'a',
+                name:'b',
                 tasks:[
                     {
                         name:'a1',

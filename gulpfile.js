@@ -8,6 +8,7 @@ var SCRIPTS_SRC = [
     'components/angular/angular.js',
     'components/angular-ui-router/release/angular-ui-router.js',
     'components/angular-bootstrap/ui-bootstrap-tpls.js',
+    'components/angular-recursion/angular-recursion.js',
 
     'src/js/**/*.services.module.js',
     'src/js/**/*.directives.module.js',

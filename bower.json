@@ -19,5 +19,8 @@
     "angular-ui-router": "~0.2.13",
     "bootstrap": "~3.3.2",
     "angular-bootstrap": "~0.12.0"
+  },
+  "dependencies": {
+    "angular-recursion": "~1.0.5"
   }
 }
