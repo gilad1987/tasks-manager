@@ -18,15 +18,21 @@
             this.tasks = [];
         }
 
+        function getNew(id,name,description,parent){
+            return new Task(id,name,description,parent);
+        }
+
         for(var i=0; i<50; i++){
 
         }
+
 
         this.$get = function(){
             return {
                 get:function(){
                     return tasks;
-                }
+                },
+                getNew:getNew
             };
         }
     }

@@ -12,8 +12,33 @@
         };
 
 
-        this.tasks = [
+        this.tasks = [                                            {
+            name:'a-a1',
+            tasks:[
+                {
+                    name:'a-a1',
+                    tasks:[
+                        {
+                            name:'a-a1'
+                        },
+                        {
+                            name:'a-a2'
+                        },
+                        {
+                            name:'a-a3'
+                        }
+                    ]
+                },
+                {
+                    name:'a-a2'
+                },
+                {
+                    name:'a-a3'
+                }
+            ]
+        },
             {
+
                 name:'a',
                 tasks:[
                     {
