@@ -3,7 +3,7 @@ try { module = angular.module("TasksManager"); }
 catch(err) { module = angular.module("TasksManager", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("src/js/components/gt-tasks-manager/gt-task.tpl.html",
+  $templateCache.put("src/js/gt-tasks-manager/gt-task.tpl.html",
     "<div class=\"box none-border\">\n" +
     "\n" +
     "    <div class=\"box\">\n" +
@@ -25,7 +25,7 @@ try { module = angular.module("TasksManager"); }
 catch(err) { module = angular.module("TasksManager", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("src/js/components/gt-tasks-manager/gt-tasks-manager.tpl.html",
+  $templateCache.put("src/js/gt-tasks-manager/gt-tasks-manager.tpl.html",
     "<div\n" +
     "    ng-repeat=\"task in tasks track by $index\" gt-task task=\"task\">\n" +
     "</div>");
