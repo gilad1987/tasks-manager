@@ -2,8 +2,21 @@
 (function (angular) {
 
 
-    function GtTaskDirective(RecursionHelper,TasksService)
+    function GtTaskDirective(RecursionHelper,TasksService,modal)
     {
+
+        /**
+         *
+         * @param $scope
+         * @param $modalInstance
+         * @param parentTask
+         * @constructor
+         */
+        function TaskModalController($scope, $modalInstance, parentTask){
+
+        }
+
+
 
         /**
          *
@@ -12,6 +25,24 @@
          * @constructor
          */
         function GtTaskController($scope, $element){
+
+            var _this = this;
+
+            this.openModalToAddTask = function(parentTask){
+
+                modal.open({
+                    templateUrl: 'src/js/gt-tasks-manager/add-task.tpl.html',
+                    controller: ['$scope','$modalInstance','parentTask',TaskModalController],
+                    //controllerAs: 'TaskModalController',
+                    resolve: {
+                        parentTask : function(){
+                            return parentTask;
+                        }
+
+                    }
+                });
+
+            };
 
             /**
              *
@@ -56,6 +87,6 @@
         };
     }
 
-    angular.module('GtTasksManager').directive('gtTask',['RecursionHelper','TasksService',GtTaskDirective]);
+    angular.module('GtTasksManager').directive('gtTask',['RecursionHelper','TasksService','$modal',GtTaskDirective]);
 
 })(angular);

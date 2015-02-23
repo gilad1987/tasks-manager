@@ -2,8 +2,8 @@
 
     <div class="box">
         {{task.name}}
-        <span class="btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn" ng-click="GtTaskCtrl.add(task)"></span>
-        <span class="btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn" ng-click="GtTaskCtrl.remove(task)"></span>
+        <button class="btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn" ng-click="GtTaskCtrl.openModalToAddTask(task)"></button>
+        <button class="btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn" ng-click="GtTaskCtrl.remove(task)"></button>
         <div class="clearfix"></div>
     </div>
 

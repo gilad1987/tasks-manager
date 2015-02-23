@@ -1,7 +1,8 @@
 (function () {
 
     angular.module('GtTasksManager',[
-        'RecursionHelper'
+        'RecursionHelper',
+        'ui.bootstrap'
     ]);
 
 })();
