@@ -5,19 +5,34 @@
     function GtTaskDirective(RecursionHelper,TasksService)
     {
 
+        /**
+         *
+         * @param $scope
+         * @param $element
+         * @constructor
+         */
         function GtTaskController($scope, $element){
 
-            this.add = function(parentTask){
+            /**
+             *
+             * @param parentTask
+             * @param callbacks
+             */
+            this.add = function(parentTask, callbacks){
                 var newTask;
 
                 newTask = TasksService.getNew(null,'na1123123123123123123me','de123sc',parentTask);
                 TasksService.add(parentTask,newTask);
-            }
+            };
 
-            this.delete = function(task){
+            /**
+             *
+             * @param task
+             * @param callbacks
+             */
+            this.remove = function(task, callbacks){
                 TasksService.remove(task);
-
-            }
+            };
 
         }
 

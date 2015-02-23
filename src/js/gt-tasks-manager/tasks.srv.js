@@ -22,14 +22,24 @@
             this.tasks = [];
         }
 
+        /**
+         *
+         * @param id
+         * @param name
+         * @param description
+         * @param parent
+         * @returns {TasksService.Task}
+         */
         function getNew(id,name,description,parent){
             return new Task(id,name,description,parent);
         }
 
-        for(var i=0; i<50; i++){
-
-        }
-
+        /**
+         *
+         * @param parentToAdd
+         * @param newTask
+         * @returns newTask
+         */
         function add(parentToAdd,newTask){
             if(!(parentToAdd.tasks instanceof Array)){
                 parentToAdd.tasks = [];
@@ -38,6 +48,11 @@
             return newTask;
         }
 
+        /**
+         *
+         * @param task
+         * @returns {boolean}
+         */
         function remove(task){
 
             if(!task.parent || (task.parent && !task.parent.tasks)){
@@ -49,8 +64,6 @@
                 task.parent.tasks.splice(taskIndex, 1);
             }
 
-
-            console.log(task.parent)
             return true;
         }
 
