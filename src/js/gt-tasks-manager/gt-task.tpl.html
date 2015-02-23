@@ -1,10 +1,32 @@
 <div class="box none-border">
 
     <div class="box">
-        {{task.name}}
+
         <button class="btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn" ng-click="GtTaskCtrl.openModalToAddTask(task)"></button>
         <button class="btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn" ng-click="GtTaskCtrl.remove(task)"></button>
-        <div class="clearfix"></div>
+
+        <span class="bold">שם משימה:</span>
+        <span>{{task.name}}</span>
+
+        <div>
+            <span class="bold">האם בוצע: </span>
+            <span class="glyphicon" ng-class="{'glyphicon-ok':task.isComplete,'glyphicon-remove':!task.isComplete}"></span>
+        </div>
+
+        <div>
+            <span class="bold">מספר משימה: </span>
+            <span>{{task.id}}</span>
+        </div>
+
+
+
+
+        <div>
+            <span class="bold">תיאור משימה:</span>
+            <div>
+                {{task.description}}
+            </div>
+        </div>
     </div>
 
     <div class="box child none-border"

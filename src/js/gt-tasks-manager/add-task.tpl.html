@@ -1,7 +1,27 @@
 <div class="add-task-modal-wrapper ltr">
-    <h2>Add New Task</h2>
-    <label>Name:</label>
-    <input name="name" value="">
 
+    <h2>Add New Task</h2>
+
+    <form name="taskForm">
+        <div>
+            <label class="label-text-input">Name:</label>
+            <input name="name" value="" ng-model="name">
+        </div>
+
+        <div>
+            <label class="label-text-input">Description:</label>
+            <textarea name="description" value="" ng-model="description"></textarea>
+        </div>
+
+        <label>Is done:</label>
+        <div>
+            <label>yes</label> <input type="radio" name="done" ng-model="done" value="1" />
+            <label>no</label> <input type="radio" name="done" ng-model="done" value="0" />
+        </div>
+
+        <br/>
+
+        <button value="" class="btn btn-success" ng-click="TaskModalController.add(taskForm)">send</button>
+    </form>
 
 </div>

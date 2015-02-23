@@ -1,7 +1,8 @@
 (function () {
 
 /*
-    function TaskModalController(){
+
+    function TaskModalController($scope, $modalInstance, parentTask){
 
     }
 

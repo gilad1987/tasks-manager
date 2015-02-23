@@ -2,36 +2,38 @@
 
     function TasksService()
     {
-        var tasks = [];
+        var tasks = [],
+            counter = 0;
 
         /**
          *
          * @param id
          * @param name
          * @param description
+         * @param isComplete
          * @param parent
          * @constructor
          */
-        function Task(id,name,description,parent)
+        function Task(id,name,description,isComplete,parent)
         {
             this.id = id ? id : null;
             this.name = name ? name : null;
             this.description = description ? description :null;
-            this.done = false;
+            this.isComplete = isComplete ? isComplete :false;
             this.parent = parent ? parent : null;
             this.tasks = [];
         }
 
         /**
          *
-         * @param id
          * @param name
          * @param description
+         * @param isComplete
          * @param parent
          * @returns {TasksService.Task}
          */
-        function getNew(id,name,description,parent){
-            return new Task(id,name,description,parent);
+        function getNew(name,description,isComplete,parent){
+            return new Task(++counter,name,description,isComplete,parent);
         }
 
         /**

@@ -12,8 +12,19 @@
          * @param parentTask
          * @constructor
          */
-        function TaskModalController($scope, $modalInstance, parentTask){
+        function TaskModalController($scope, $modalInstance, parentTask, GtTaskDrvController){
 
+            this.add = function(form){
+
+                var formData = {};
+
+                formData.name = form.name.$modelValue;
+                formData.description = form.description.$modelValue;
+                formData.isComplete = form.done.$modelValue;
+
+                GtTaskDrvController.add(parentTask, formData);
+
+            }
         }
 
 
@@ -32,11 +43,14 @@
 
                 modal.open({
                     templateUrl: 'src/js/gt-tasks-manager/add-task.tpl.html',
-                    controller: ['$scope','$modalInstance','parentTask',TaskModalController],
-                    //controllerAs: 'TaskModalController',
+                    controller: ['$scope','$modalInstance','parentTask','GtTaskDrvController',TaskModalController],
+                    controllerAs: 'TaskModalController',
                     resolve: {
                         parentTask : function(){
                             return parentTask;
+                        },
+                        GtTaskDrvController:function(){
+                            return _this;
                         }
 
                     }
@@ -49,11 +63,12 @@
              * @param parentTask
              * @param callbacks
              */
-            this.add = function(parentTask, callbacks){
+            this.add = function(parentTask, data, callbacks){
                 var newTask;
 
-                newTask = TasksService.getNew(null,'na1123123123123123123me','de123sc',parentTask);
+                newTask = TasksService.getNew(data.name,data.description,data.isComplete,parentTask);
                 TasksService.add(parentTask,newTask);
+
             };
 
             /**
