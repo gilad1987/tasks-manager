@@ -4,10 +4,14 @@
     {
         var tasks = [];
 
-        //this.setFormatTime = function(_boolean){
-        //    params.format_time = _boolean;
-        //};
-
+        /**
+         *
+         * @param id
+         * @param name
+         * @param description
+         * @param parent
+         * @constructor
+         */
         function Task(id,name,description,parent)
         {
             this.id = id ? id : null;
@@ -26,13 +30,40 @@
 
         }
 
+        function add(parentToAdd,newTask){
+            if(!(parentToAdd.tasks instanceof Array)){
+                parentToAdd.tasks = [];
+            }
+            parentToAdd.tasks.push(newTask);
+            return newTask;
+        }
+
+        function remove(task){
+            if(!task.parent){
+                return false;
+            }
+
+            var i,parentTaskLength;
+            parentTaskLength = task.parent.tasks.length;
+
+            for(i=0; i<parentTaskLength; i++){
+                if(task.parent.tasks[i] === task ){
+                    delete parent.tasks[i];
+                    break;
+                }
+            }
+
+            return true;
+        }
 
         this.$get = function(){
             return {
                 get:function(){
                     return tasks;
                 },
-                getNew:getNew
+                getNew:getNew,
+                add:add,
+                remove:remove
             };
         }
     }

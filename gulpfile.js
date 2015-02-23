@@ -64,7 +64,7 @@ var VERSION = (function(){
 
 })();
 
-/* ------------------------------------- include resource to html --------------------------------------------*/
+/* ------------------------------------- include resource to html ---------------------------------------*/
 
 // must in html fro Scripts     <!-- inject:js --><!-- endinject -->
 // must in html fro Css         <!-- inject:css --><!-- endinject -->
@@ -104,4 +104,29 @@ gulp.task('templates:developer', function() {
         }))
         .pipe(concat('ng-template.js'))
         .pipe(gulp.dest('src/js'))
-})
+});
+
+/* ------------------------------------- watch:ng-templates --------------------------------------------*/
+
+gulp.task('watch:ng-templates', function() {
+    gulp.watch('src/js/**/*.tpl.html', ['templates:developer']);
+});
+
+/* ------------------------------------- watch:scripts --------------------------------------------*/
+
+gulp.task('watch:injector_js_css_to_html', function() {
+    gulp.watch([
+        'src/js/**/*.js','src/js/*.js',
+        'src/**.css','src/**/*.css'],
+        ['js_css_injector:developer']
+    );
+});
+
+/* ------------------------------------- default --------------------------------------------*/
+
+gulp.task('default',[
+    'templates:developer',
+    'watch:injector_js_css_to_html',
+    'watch:ng-templates']
+);
+

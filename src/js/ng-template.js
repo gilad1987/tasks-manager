@@ -8,7 +8,9 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <div class=\"box\">\n" +
     "        {{task.name}}\n" +
-    "        <span ng-click=\"task.add(task)\">add</span>\n" +
+    "        <span class=\"btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn\" ng-click=\"GtTaskCtrl.add(task)\"></span>\n" +
+    "        <span class=\"btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn\" ng-click=\"GtTaskCtrl.delete(task)\"></span>\n" +
+    "        <div class=\"clearfix\"></div>\n" +
     "    </div>\n" +
     "\n" +
     "    <div class=\"box child none-border\"\n" +

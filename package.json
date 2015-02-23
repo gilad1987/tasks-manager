@@ -20,6 +20,7 @@
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.0",
     "gulp-html2js": "^0.2.0",
-    "gulp-inject": "^1.1.1"
+    "gulp-inject": "^1.1.1",
+    "gulp-watch": "^4.1.1"
   }
 }
