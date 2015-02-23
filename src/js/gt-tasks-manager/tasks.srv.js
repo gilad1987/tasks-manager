@@ -39,20 +39,18 @@
         }
 
         function remove(task){
-            if(!task.parent){
+
+            if(!task.parent || (task.parent && !task.parent.tasks)){
                 return false;
             }
 
-            var i,parentTaskLength;
-            parentTaskLength = task.parent.tasks.length;
-
-            for(i=0; i<parentTaskLength; i++){
-                if(task.parent.tasks[i] === task ){
-                    delete parent.tasks[i];
-                    break;
-                }
+            var taskIndex = task.parent.tasks.indexOf(task);
+            if (taskIndex > -1) {
+                task.parent.tasks.splice(taskIndex, 1);
             }
 
+
+            console.log(task.parent)
             return true;
         }
 
