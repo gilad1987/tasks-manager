@@ -4,31 +4,6 @@
 
     function GtTaskDirective(RecursionHelper,TasksService,modal)
     {
-
-        /**
-         *
-         * @param $scope
-         * @param $modalInstance
-         * @param parentTask
-         * @constructor
-         */
-        function TaskModalController($scope, $modalInstance, parentTask, GtTaskDrvController){
-
-            this.add = function(form){
-
-                var formData = {};
-
-                formData.name = form.name.$modelValue;
-                formData.description = form.description.$modelValue;
-                formData.isComplete = form.done.$modelValue;
-
-                GtTaskDrvController.add(parentTask, formData);
-
-            }
-        }
-
-
-
         /**
          *
          * @param $scope
@@ -36,60 +11,20 @@
          * @constructor
          */
         function GtTaskController($scope, $element){
-
-            var _this = this;
-
-            this.openModalToAddTask = function(parentTask){
-
-                modal.open({
-                    templateUrl: 'src/js/gt-tasks-manager/add-task.tpl.html',
-                    controller: ['$scope','$modalInstance','parentTask','GtTaskDrvController',TaskModalController],
-                    controllerAs: 'TaskModalController',
-                    resolve: {
-                        parentTask : function(){
-                            return parentTask;
-                        },
-                        GtTaskDrvController:function(){
-                            return _this;
-                        }
-
-                    }
-                });
-
-            };
-
-            /**
-             *
-             * @param parentTask
-             * @param callbacks
-             */
-            this.add = function(parentTask, data, callbacks){
-                var newTask;
-
-                newTask = TasksService.getNew(data.name,data.description,data.isComplete,parentTask);
-                TasksService.add(parentTask,newTask);
-
-            };
-
-            /**
-             *
-             * @param task
-             * @param callbacks
-             */
-            this.remove = function(task, callbacks){
-                TasksService.remove(task);
-            };
-
+            this.remove = $scope.api.remove;
+            this.openModalToAddTask = $scope.api.openModalToAddTask;
         }
 
         return  {
             templateUrl: 'src/js/gt-tasks-manager/gt-task.tpl.html',
             scope: {
-                task: '=task'
+                task: '=task',
+                api:'=api'
             },
             controller: ['$scope','$element',GtTaskController],
             controllerAs: 'GtTaskCtrl',
             compile: function(element) {
+
                 //element.css('background-color','#'+Math.floor(Math.random()*16777215).toString(16));
                 return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){
 

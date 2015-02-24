@@ -8,7 +8,7 @@ body{padding: 20px; margin: 0; font-family: 'arial'; direction: rtl}
 th{text-align: right}
 
 h1.title{text-align: center}
-.box{padding: 5px; border:solid 1px #000000; border-radius: 5px; margin:5px 0;}
+.box{padding: 5px; border:solid 1px #000000;  margin:5px 0;}
 .none-border{border:none; padding: 0; margin: 0;}
 .box.child{margin-right:15px; }
 .page-wrapper{max-width: 80%;}

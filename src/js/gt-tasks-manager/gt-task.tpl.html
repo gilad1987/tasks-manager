@@ -30,8 +30,10 @@
     </div>
 
     <div class="box child none-border"
-         ng-repeat="task in task.tasks"
-         gt-task task="task">
+         ng-repeat="task in task.tasks track by $index"
+         gt-task
+         task="task"
+         api="api">
     </div>
 
 </div>

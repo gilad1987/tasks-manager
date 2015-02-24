@@ -30,10 +30,11 @@
          * @param description
          * @param isComplete
          * @param parent
+         * @param id
          * @returns {TasksService.Task}
          */
-        function getNew(name,description,isComplete,parent){
-            return new Task(++counter,name,description,isComplete,parent);
+        function getNew(name,description,isComplete,parent,id){
+            return new Task(id,name,description,isComplete,parent);
         }
 
         /**
@@ -43,10 +44,13 @@
          * @returns newTask
          */
         function add(parentToAdd,newTask){
-            if(!(parentToAdd.tasks instanceof Array)){
-                parentToAdd.tasks = [];
+
+            if(typeof parentToAdd === 'undefined'){
+                tasks.push(newTask);
+            }else{
+                parentToAdd.tasks.push(newTask);
             }
-            parentToAdd.tasks.push(newTask);
+
             return newTask;
         }
 
@@ -57,13 +61,17 @@
          */
         function remove(task){
 
-            if(!task.parent || (task.parent && !task.parent.tasks)){
-                return false;
+            var removeFromCollection;
+
+            if(task.parent == null){
+                removeFromCollection = tasks;
+            }else{
+                removeFromCollection = task.parent.tasks;
             }
 
-            var taskIndex = task.parent.tasks.indexOf(task);
+            var taskIndex = removeFromCollection.indexOf(task);
             if (taskIndex > -1) {
-                task.parent.tasks.splice(taskIndex, 1);
+                removeFromCollection.splice(taskIndex, 1);
             }
 
             return true;

@@ -34,8 +34,14 @@
 <body>
 
     <div class="page-wrapper">
+
         <div ng-controller="TasksController as TasksCtrl">
-            <div gt-tasks-manager tasks="TasksCtrl.tasks"></div>
+            <div>
+                <span>הוסף משימה חדשה : </span>
+                <button class="btn btn-primary glyphicon glyphicon-plus btn-xs" ng-click="TasksCtrl.api.openModalToAddTask()"></button>
+            </div>
+
+            <div gt-tasks-manager tasks="TasksCtrl.tasks" api="TasksCtrl.api"></div>
         </div>
     </div>
 

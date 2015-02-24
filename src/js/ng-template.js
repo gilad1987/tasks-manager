@@ -72,8 +72,10 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <div class=\"box child none-border\"\n" +
-    "         ng-repeat=\"task in task.tasks\"\n" +
-    "         gt-task task=\"task\">\n" +
+    "         ng-repeat=\"task in task.tasks track by $index\"\n" +
+    "         gt-task\n" +
+    "         task=\"task\"\n" +
+    "         api=\"api\">\n" +
     "    </div>\n" +
     "\n" +
     "</div>");
@@ -87,7 +89,7 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("src/js/gt-tasks-manager/gt-tasks-manager.tpl.html",
     "<div\n" +
-    "    ng-repeat=\"task in tasks track by $index\" gt-task task=\"task\">\n" +
+    "    ng-repeat=\"task in tasks track by $index\" gt-task task=\"task\" api=\"api\">\n" +
     "</div>");
 }]);
 })();
