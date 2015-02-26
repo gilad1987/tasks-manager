@@ -2,8 +2,8 @@
 
     <div class="box">
 
-        <button class="btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn" ng-click="GtTaskCtrl.openModalToAddTask(task)"></button>
-        <button class="btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn" ng-click="GtTaskCtrl.remove(task)"></button>
+        <button class="btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn" ng-click="GtTaskCtrl.addTask(task)"></button>
+        <button class="btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn" ng-click="GtTaskCtrl.removeTask(task)"></button>
 
         <span class="bold">שם משימה:</span>
         <span>{{task.name}}</span>
@@ -14,7 +14,7 @@
         </div>
 
         <div>
-            <span class="bold">מספר משימה: </span>
+            <span class="bold">מזהה משימה: </span>
             <span>{{task.id}}</span>
         </div>
 

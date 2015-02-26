@@ -3,14 +3,16 @@
 
     function GtTasksManagerDirective($timeout,modal,TasksService)
     {
+
         /**
          *
          * @param $scope
          * @param $modalInstance
          * @param parentTask
+         * @param addToService
          * @constructor
          */
-        function TaskModalController($scope, $modalInstance, parentTask, GtTaskDrvController){
+        function TaskModalController($scope, $modalInstance, parentTask, addToService){
 
             this.add = function(form){
 
@@ -19,8 +21,7 @@
                 formData.name = form.name.$modelValue;
                 formData.description = form.description.$modelValue;
                 formData.isComplete = form.done.$modelValue;
-
-                GtTaskDrvController.add(parentTask, formData);
+                addToService(parentTask, formData);
 
             }
 
@@ -29,41 +30,8 @@
 
         function GtTaskManagerController($scope, $element){
 
-            var _this = this;
-
-            this.openModalToAddTask = function(parentTask){
-
-                modal.open({
-                    templateUrl: 'src/js/gt-tasks-manager/add-task.tpl.html',
-                    controller: ['$scope','$modalInstance','parentTask','GtTaskDrvController',TaskModalController],
-                    controllerAs: 'TaskModalController',
-                    resolve: {
-                        parentTask : function(){
-                            return parentTask;
-                        },
-                        GtTaskDrvController:function(){
-                            return _this;
-                        }
-
-                    }
-                });
-
-            };
-
-
-            /**
-             *
-             * @param parentTask
-             * @param data
-             * @param callbacks
-             */
-            this.add = function(parentTask, data, callbacks){
-                var newTask;
-
-
-                newTask = TasksService.getNew(data.name,data.description,data.isComplete,parentTask);
-                TasksService.add(parentTask,newTask);
-
+            this.addTask = function(parentTask){
+                openModelToAddTask(parentTask);
             };
 
             /**
@@ -71,19 +39,55 @@
              * @param task
              * @param callbacks
              */
-            this.remove = function(task, callbacks){
+            this.removeTask = function(task, callbacks){
                 TasksService.remove(task);
             };
+
+            /**
+             *
+             * @param parentTask
+             */
+            function openModelToAddTask(parentTask){
+
+                modal.open({
+                    templateUrl: 'src/js/gt-tasks-manager/add-task.tpl.html',
+                    controller: ['$scope','$modalInstance','parentTask','addToService',TaskModalController],
+                    controllerAs: 'TaskModalController',
+                    resolve: {
+                        parentTask : function(){
+                            return parentTask;
+                        },
+                        addToService:function(){
+                            return add;
+                        }
+
+                    }
+                });
+
+
+            }
+
+            /**
+             *
+             * @param parentTask
+             * @param data
+             * @param callbacks
+             */
+            function add(parentTask, data, callbacks){
+                var newTask;
+
+                newTask = TasksService.getNew(data.name,data.description,data.isComplete,parentTask);
+                TasksService.add(parentTask,newTask,callbacks);
+
+            }
+
 
             if(typeof $scope.api == 'undefined'){
                 $scope.api = {};
             }
-            $scope.api.openModalToAddTask = this.openModalToAddTask;
-            $scope.api.remove = this.remove;
+            $scope.api.addTask = this.addTask;
+            $scope.api.removeTask = this.removeTask;
         }
-
-
-
 
 
 

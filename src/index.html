@@ -2,7 +2,9 @@
 <html>
 <head>
     <title>Tasks manager</title>
+
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- inject:css -->
     <link rel='stylesheet' href='../components/bootstrap/dist/css/bootstrap.css?v=4314'>
@@ -39,7 +41,7 @@
         <div ng-controller="TasksController as TasksCtrl">
             <div>
                 <span>הוסף משימה חדשה : </span>
-                <button class="btn btn-primary glyphicon glyphicon-plus btn-xs" ng-click="TasksCtrl.api.openModalToAddTask()"></button>
+                <button class="btn btn-primary glyphicon glyphicon-plus btn-xs" ng-click="TasksCtrl.api.addTask()"></button>
             </div>
 
             <div gt-tasks-manager tasks="TasksCtrl.tasks" api="TasksCtrl.api"></div>

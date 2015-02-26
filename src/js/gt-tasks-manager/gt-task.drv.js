@@ -11,8 +11,8 @@
          * @constructor
          */
         function GtTaskController($scope, $element){
-            this.remove = $scope.api.remove;
-            this.openModalToAddTask = $scope.api.openModalToAddTask;
+            this.removeTask = $scope.api.removeTask;
+            this.addTask = $scope.api.addTask;
         }
 
         return  {
