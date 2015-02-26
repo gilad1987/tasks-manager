@@ -50,7 +50,7 @@
             function openModelToAddTask(parentTask){
 
                 modal.open({
-                    templateUrl: 'src/js/gt-tasks-manager/add-task.tpl.html',
+                    templateUrl: 'src/js/gt-tasks-manager/gt-task/add-task.tpl.html',
                     controller: ['$scope','$modalInstance','parentTask','addToService',TaskModalController],
                     controllerAs: 'TaskModalController',
                     resolve: {
